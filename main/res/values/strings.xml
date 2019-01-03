@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">RentalZ</string>
+
+    <string name="required_field_notice">&#42; = required field</string>
+    <string name="optional_field_notice">&#9674; = optional field</string>
+
+    <!--empty placeholder-->
+    <string name="empty_placeholder" translatable="false"></string>
+
+    <!--API key-->
+    <string name="google_api_key">AIzaSyAjxT7eZqIeV3jlnrv5aBVhalKB0LT0gxs</string>
+
+    <!--Field titles (for form)-->
+    <string name="property_type">Property type&#42;</string>
+    <string name="bedrooms">Bedrooms&#42;</string>
+    <string name="bathrooms">Bathrooms&#9674;</string>
+    <string name="property_addition_date">Property addition date&#42;</string>
+    <string name="property_addition_time">Property addition time&#42;</string>
+    <string name="monthly_rent">Monthly rent (£)&#42;</string>
+    <string name="furniture_type">Furniture type&#9674;</string>
+    <string name="notes" translatable="false">Notes&#9674;</string>
+    <string name="property_description">Property description&#9674;</string>
+    <string name="reporter_name">Reporter name&#42;</string>
+    <string name="pets_allowed">Pets allowed&#9674;</string>
+    <string name="wheelchair_accessible">Wheelchair accessible&#9674;</string>
+    <string name="energy_efficiency_rating">Energy efficiency rating&#9674;</string>
+    <string name="environmental_impact_rating">Environmental impact rating&#9674;</string>
+    <string name="property_image">Property image&#9674;</string>
+    <string name="property_video">Property video&#9674;</string>
+    <string name="nearest_stations">Nearest stations&#9674;</string>
+    <string name="nearest_schools">Nearest schools&#9674;</string>
+    <string name="terms_and_conditions">Terms and Conditions&#42;</string>
+
+    <!--Field titles (for AlertDialog)-->
+    <string name="property_type_">Property type&#x3a;</string>
+    <string name="bedrooms_">Bedrooms&#x3a;</string>
+    <string name="property_addition_date_">Property addition date&#x3a;</string>
+    <string name="property_addition_time_">Property addition time&#x3a;</string>
+    <string name="monthly_rent_">Monthly rent (£)&#x3a;</string>
+    <string name="furniture_type_">Furniture type&#x3a;</string>
+    <string name="property_description_">Property description&#x3a;</string>
+    <string name="reporter_name_">Reporter name&#x3a;</string>
+
+    <!--Property types-->
+    <string name="apartment_flat">Apartment / Flat</string>
+    <string name="bungalow">Bungalow</string>
+    <string name="chalet">Chalet</string>
+    <string name="cottage">Cottage</string>
+    <string name="duplex">Duplex</string>
+    <string name="garage">Garage</string>
+    <string name="house">House</string>
+    <string name="maisonette">Maisonette</string>
+    <string name="mews">Mews</string>
+    <string name="penthouse">Penthouse</string>
+    <string name="triplex">Triplex</string>
+
+    <!--Bedroom/Bathroom quantity-->
+    <string name="none">None</string>
+    <string name="studio">Studio</string>
+
+    <!--Furniture types-->
+    <string name="furnished">Furnished</string>
+    <string name="unfurnished">Unfurnished</string>
+    <string name="partfurnished">Part furnished</string>
+
+    <!--Button text-->
+    <string name="add">Add</string>
+    <string name="choose_a_date">Choose a date</string>
+    <string name="choose_a_photo">Choose a photo</string>
+    <string name="choose_a_time">Choose a time</string>
+    <string name="choose_a_video">Choose a video</string>
+    <string name="record_a_video">Record a video</string>
+    <string name="remove">Remove</string>
+    <string name="remove_video">Remove video</string>
+    <string name="remove_photo">Remove photo</string>
+    <string name="submit">Submit</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="minus_sign" translatable="false">&#45;</string>
+    <string name="plus_sign" translatable="false">&#43;</string>
+
+    <!--CheckBox content-->
+    <string name="i_agree_to_termsandconditions">I agree to the Terms and Conditions</string>
+
+    <!--Toast content-->
+    <string name="all_entered_information_cleared_and_reset_successfully">All entered information cleared &amp; reset successfully</string>
+    <string name="video_doesnt_exist">Video doesn\'t exist</string>
+    <string name="image_doesnt_exist">Image doesn\'t exist</string>
+    <string name="image_removed_successfully">Image removed successfully</string>
+    <string name="video_removed_successfully">Video removed successfully</string>
+    <string name="all_entered_information_has_not_been_cleared_nor_reset">All entered information has not been cleared nor reset</string>
+    <string name="you_must_agree_to_termsandconditions">You must agree to the Terms and Conditions</string>
+
+    <!-- content descriptions -->
+    <string name="photo_of_property">photo of property</string>
+
+    <!-- Dropdown List prompts -->
+    <string name="choose_propertytype">Choose a property type</string>
+    <string name="choose_furnituretype">Choose a furniture type</string>
+
+    <!-- Hints -->
+    <string name="hint_reportername">Forename Surname</string>
+    <string name="hint_date">DD/MM/YYYY</string>
+    <string name="hint_time">HH:MM</string>
+    <string name="select_a_photo">Select a Photo</string>
+    <string name="select_a_video">Select a Video</string>
+
+    <!-- Dialog content -->
+    <string name="details_entered">Details Entered</string>
+    <string name="reset_form">Reset Form</string>
+    <string name="reset_warning">All entered information will be erased &amp; reset.</string>
+    <string name="removephoto_warning">Existing photo will be removed.</string>
+    <string name="removevideo_warning">Existing video will be removed.</string>
+    <string name="replacephoto_warning">Existing photo will be replaced.</string>
+    <string name="replacevideo_warning">Existing video will be replaced.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="settings">Settings</string>
+
+    <!-- Error messages -->
+    <string name="propertytype_required_notice">Property type must be chosen</string>
+    <string name="bedrooms_required_notice">Bedroom quantity must be chosen</string>
+    <string name="date_required_notice">Date must be chosen</string>
+    <string name="time_required_notice">Time must be chosen</string>
+    <string name="monthlyrent_required_notice">Monthly rent must be specified</string>
+    <string name="reportername_required_notice">Name of reporter required (must contain at least 2 characters)</string>
+
+    <!--Radio Button options-->
+    <string name="yes">Yes</string>
+    <string name="yes_allrooms">Yes, all rooms</string>
+    <string name="yes_somerooms">Yes, some rooms</string>
+    <string name="no">No</string>
+
+    <!--Energy rating levels-->
+    <string name="level_a">level A</string>
+    <string name="level_b">level B</string>
+    <string name="level_c">level C</string>
+    <string name="level_d">level D</string>
+    <string name="level_e">level E</string>
+    <string name="level_f">level F</string>
+    <string name="level_g">level G</string>
+</resources>

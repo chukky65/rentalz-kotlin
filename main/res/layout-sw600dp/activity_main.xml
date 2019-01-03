@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- 'android:focusable="true"' and 'android:focusableInTouchMode="true"' stop the EditText from gaining focus upon Activity startup  -->
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'required field' section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/required_field_notice" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp">
+
+            <!-- 'optional field' section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/optional_field_notice" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <!-- 'Property type' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_propertytype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_home" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/property_type" />
+            </LinearLayout>
+
+            <!-- 'Bedrooms' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/imgView_bedrooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_bed" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/bedrooms" />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- 'Property type' Spinner -->
+            <RelativeLayout
+                android:layout_column="0"
+                android:background="@drawable/spinner_border"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="5dp">
+                <Spinner
+                    android:id="@+id/spinner_propertytype"
+                    style="@android:style/Widget.DropDownItem.Spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/choose_propertytype" />
+            </RelativeLayout>
+
+            <!-- 'Bedrooms' SeekBar -->
+            <SeekBar
+                android:id="@+id/seekbar_bedrooms"
+                android:layout_column="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="9"
+                />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Bedrooms' quantity indicator + buttons -->
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:gravity="center"
+                android:stretchColumns="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp">
+
+                    <!-- 'Bedrooms -' button (decreases bedroom quantity by 1) -->
+                    <Button
+                        android:id="@+id/btn_bedroomsminus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="@string/minus_sign"
+                        android:textSize="26sp"
+                        />
+
+                    <!-- 'textView_seekbarbedroomcount' TextView (shows user-defined bedroom quantity) -->
+                    <TextView
+                        android:id="@+id/textView_seekbarbedroomcount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        style="@android:style/TextAppearance.Large" />
+
+                    <!-- 'Bedrooms +' button (increases bedroom quantity by 1) -->
+                    <Button
+                        android:id="@+id/btn_bedroomsplus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:text="@string/plus_sign"
+                        android:textSize="26sp"
+                        />
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Property type' error message -->
+            <TextView
+                android:id="@+id/textViewerror_propertytype"
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:drawableStart="@android:drawable/ic_dialog_alert"
+                android:drawablePadding="10dp"
+                android:layout_marginEnd="30dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/propertytype_required_notice" />
+
+            <!-- 'Bedrooms' error message -->
+            <TextView
+                android:id="@+id/textViewerror_bedrooms"
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:drawableStart="@android:drawable/ic_dialog_alert"
+                android:drawablePadding="10dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/bedrooms_required_notice" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <!-- 'Bathrooms' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_bathrooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_bath" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/bathrooms" />
+            </LinearLayout>
+
+            <!-- 'Property addition date' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/imgView_propertadditiondate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_calendar_alt" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/property_addition_date" />
+            </LinearLayout>
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- 'Bathrooms' SeekBar -->
+            <SeekBar
+                android:id="@+id/seekbar_bathrooms"
+                android:layout_column="0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:max="3"
+                />
+
+
+            <!-- 'Property addition date' EditText -->
+            <EditText
+                android:id="@+id/editText_date"
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginEnd="30dp"
+                android:maxLength="10"
+                android:clickable="false"
+                android:hint="@string/hint_date"
+                android:inputType="date"
+                android:autofillHints="" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Bedrooms -' button (decreases bedroom quantity by 1) -->
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:stretchColumns="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- 'Bathrooms' quantity indicator + buttons -->
+                    <Button
+                        android:id="@+id/btn_bathroomsminus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="@string/minus_sign"
+                        android:textSize="26sp"
+                        />
+
+                    <!-- 'textView_seekbarbathroomcount' TextView (shows user-defined bathroom quantity) -->
+                    <TextView
+                        android:id="@+id/textView_seekbarbathroomcount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        style="@android:style/TextAppearance.Large" />
+
+                    <!-- 'Bedrooms +' button (increases bedroom quantity by 1) -->
+                    <Button
+                        android:id="@+id/btn_bathroomsplus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:text="@string/plus_sign"
+                        android:textSize="26sp"
+                        />
+                </TableRow>
+            </TableLayout>
+
+            <!-- 'Choose Date' button-->
+            <Button
+                android:id="@+id/btn_choosedate"
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/submit"
+                android:text="@string/choose_a_date"
+                android:textSize="18sp"/>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Property addition date' error message -->
+            <TextView
+                android:id="@+id/textViewerror_date"
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:drawableStart="@android:drawable/ic_dialog_alert"
+                android:drawablePadding="10dp"
+                android:layout_marginEnd="30dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/date_required_notice" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Property addition time' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_propertadditiontime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_clock_o" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/property_addition_time" />
+            </LinearLayout>
+
+            <!-- 'Monthly rent' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/imgView_monthlyrent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:labelFor="@id/editText_monthlyrent"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_money" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/monthly_rent" />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Property addition time' EditText -->
+            <TextView
+                android:id="@+id/editText_time"
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:maxLength="5"
+                android:clickable="false"
+                android:hint="@string/hint_time"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="?android:attr/textColorPrimary"
+                android:inputType="time"
+                android:autofillHints="" />
+
+            <!-- 'Monthly rent' EditText -->
+            <EditText
+                android:id="@+id/editText_monthlyrent"
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:autofillHints="" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Choose Time' button-->
+            <Button
+                android:id="@+id/btn_choosetime"
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/submit"
+                android:text="@string/choose_a_time"
+                android:textSize="18sp"/>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Property addition time' error message -->
+            <TextView
+                android:id="@+id/textViewerror_time"
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:drawableStart="@android:drawable/ic_dialog_alert"
+                android:drawablePadding="10dp"
+                android:layout_marginEnd="30dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/time_required_notice" />
+
+            <!-- 'Monthly rent' error message -->
+            <TextView
+                android:id="@+id/textViewerror_monthlyrent"
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:drawableStart="@android:drawable/ic_dialog_alert"
+                android:drawablePadding="10dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/monthlyrent_required_notice" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <!-- 'Furniture type' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/imgView_furnituretype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_shower" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/furniture_type" />
+            </LinearLayout>
+
+            <!-- 'Notes' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/imgView_notes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:labelFor="@id/editText_notes"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_sticky_note" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/notes" />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Furniture type' Spinner -->
+            <RelativeLayout
+                android:layout_column="0"
+                android:background="@drawable/spinner_border"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start">
+                <Spinner
+                    android:id="@+id/spinner_furtnituretype"
+                    style="@android:style/Widget.DropDownItem.Spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/choose_furnituretype" />
+            </RelativeLayout>
+
+            <!-- 'Notes' EditText -->
+            <EditText
+                android:id="@+id/editText_notes"
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:maxLines="2"
+                android:autofillHints="" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp">
+
+            <!-- 'Description' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:labelFor="@id/editText_description"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_info_circle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/property_description" />
+            </LinearLayout>
+
+            <!-- 'Reporter name' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_reportername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_user" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/reporter_name" />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Description' EditText -->
+            <EditText
+                android:id="@+id/editText_description"
+                android:layout_column="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:maxLines="2"
+                android:autofillHints="" />
+
+            <!-- 'Reporter name' EditText -->
+            <!-- android:inputType="textCapWords" - ensures the first letter of each word is capitalised -->
+            <EditText
+                android:id="@+id/editText_reportername"
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_reportername"
+                android:inputType="textCapWords"
+                android:autofillHints="" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Reporter name' error message -->
+            <TextView
+                android:id="@+id/textViewerror_reportername"
+                android:layout_column="1"
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_light"
+                android:drawableStart="@android:drawable/ic_dialog_alert"
+                android:drawablePadding="10dp"
+                style="@android:style/TextAppearance.Medium"
+                android:text="@string/reportername_required_notice" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp">
+
+            <!-- 'Pets allowed' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_petsallowed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_paw" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/pets_allowed" />
+            </LinearLayout>
+
+            <!-- 'Wheelchair accessible' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_wheelchairaccessible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_wheelchair_alt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/wheelchair_accessible" />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Pets allowed' RadioGroup -->
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radiogroup_petsallowed">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiooption_petsallowed_yes"
+                    style="@android:style/TextAppearance.Medium"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiooption_petsallowed_no"
+                    style="@android:style/TextAppearance.Medium"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+
+            <!-- 'Wheelchair accessible' RadioGroup -->
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radiogroup_wheelchairaccessible"
+                android:layout_marginBottom="30dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiooption_wheelchairaccessible_yesallrooms"
+                    style="@android:style/TextAppearance.Medium"
+                    android:text="@string/yes_allrooms" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiooption_wheelchairaccessible_yessomerooms"
+                    style="@android:style/TextAppearance.Medium"
+                    android:text="@string/yes_somerooms" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiooption_wheelchairaccessible_no"
+                    style="@android:style/TextAppearance.Medium"
+                    android:text="@string/no" />
+            </RadioGroup>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Energy efficiency rating' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_energyefficiencyrating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_lightbulb" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/energy_efficiency_rating" />
+            </LinearLayout>
+
+            <!-- 'Environmental impact rating' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/imgView_environmentalimpactrating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_leaf" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/environmental_impact_rating" />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Energy efficiency rating' SeekBar -->
+            <SeekBar
+                android:id="@+id/seekbar_energyefficiencyrating"
+                android:layout_column="0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:max="99"
+                />
+
+            <!-- 'Environmental impact rating' SeekBar -->
+            <SeekBar
+                android:id="@+id/seekbar_environmentalimpactrating"
+                android:layout_column="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="99"
+                />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Energy efficiency rating' value indicator + buttons -->
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:stretchColumns="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp">
+
+                    <!-- 'Energy efficiency rating -' button (decreases bedroom quantity by 1) -->
+                    <Button
+                        android:id="@+id/btn_energyefficiencyratingminus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="@string/minus_sign"
+                        android:textSize="26sp"
+                        />
+
+                    <!-- 'textView_seekbarenergyefficiencyrating' TextView (shows user-defined bedroom quantity) -->
+                    <TextView
+                        android:id="@+id/textView_seekbarenergyefficiencyrating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        style="@android:style/TextAppearance.Medium" />
+
+                    <!-- 'Energy efficiency rating +' button (increases bedroom quantity by 1) -->
+                    <Button
+                        android:id="@+id/btn_energyefficiencyratingplus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:text="@string/plus_sign"
+                        android:textSize="26sp"
+                        />
+                </TableRow>
+            </TableLayout>
+
+
+            <!-- 'Environmental impact rating' value indicator + buttons -->
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:gravity="center"
+                android:stretchColumns="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- 'Environmental impact rating -' button (decreases bedroom quantity by 1) -->
+                    <Button
+                        android:id="@+id/btn_environmentalimpactratingminus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="@string/minus_sign"
+                        android:textSize="26sp"
+                        />
+
+                    <!-- 'textView_seekbarenvironmentalimpactrating' TextView (shows user-defined bedroom quantity) -->
+                    <TextView
+                        android:id="@+id/textView_seekbarenvironmentalimpactrating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        style="@android:style/TextAppearance.Medium" />
+
+                    <!-- 'Environmental impact rating +' button (increases bedroom quantity by 1) -->
+                    <Button
+                        android:id="@+id/btn_environmentalimpactratingplus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:text="@string/plus_sign"
+                        android:textSize="26sp"
+                        />
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp">
+
+            <!-- 'Property image' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_propertyimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_image" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/property_image" />
+            </LinearLayout>
+
+            <!-- 'Property video' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_propertyvideo"
+                    android:importantForAccessibility="no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_video" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/spinner_propertytype"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/property_video" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Property image' holder for ImageView -->
+            <ImageView
+                android:id="@+id/imgView_propertyphoto"
+                android:contentDescription="@string/photo_of_property"
+                android:layout_column="0"
+                android:layout_height="200dp"
+                android:layout_width="400dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:padding="2dp"/><!--set 2dp padding from all the sides-->
+
+            <!-- 'Property video' holder for VideoView -->
+            <VideoView
+                android:id="@+id/videoView_propertyvideo"
+                android:layout_width="400dp"
+                android:layout_column="1"
+                android:layout_height="200dp" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Take a photo' button -->
+            <Button
+                android:id="@+id/btn_takephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:contentDescription="@string/take_a_photo"
+                android:drawableStart="@android:drawable/ic_menu_camera"
+                android:layout_marginEnd="30dp"
+                android:drawablePadding="10dp"
+                android:text="@string/take_a_photo"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18sp"/>
+
+            <!-- 'Record a video' button -->
+            <Button
+                android:id="@+id/btn_recordvideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:contentDescription="@string/submit"
+                android:drawableStart="@android:drawable/ic_menu_camera"
+                android:drawablePadding="10dp"
+                android:text="@string/record_a_video"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18sp"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Choose photo' button -->
+            <Button
+                android:id="@+id/btn_choosephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:contentDescription="@string/choose_a_photo"
+                android:drawableStart="@android:drawable/ic_menu_gallery"
+                android:layout_marginEnd="30dp"
+                android:drawablePadding="10dp"
+                android:text="@string/choose_a_photo"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18sp"/>
+
+            <!-- 'Choose video' button -->
+            <Button
+                android:id="@+id/btn_choosevideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:contentDescription="@string/choose_a_photo"
+                android:drawableStart="@android:drawable/ic_menu_gallery"
+                android:drawablePadding="10dp"
+                android:text="@string/choose_a_video"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18sp"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Remove photo' button -->
+            <Button
+                android:id="@+id/btn_removephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:contentDescription="@string/remove_photo"
+                android:drawableStart="@android:drawable/ic_menu_delete"
+                android:layout_marginEnd="30dp"
+                android:drawablePadding="10dp"
+                android:text="@string/remove_photo"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18sp"/>
+
+            <!-- 'Remove video' button -->
+            <Button
+                android:id="@+id/btn_removevideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:contentDescription="@string/submit"
+                android:drawableStart="@android:drawable/ic_menu_delete"
+                android:drawablePadding="10dp"
+                android:text="@string/remove_video"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18sp"/>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Nearest stations' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="horizontal"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_neareststations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_subway" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/editText_neareststation"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/nearest_stations" />
+            </LinearLayout>
+
+            <!-- 'Nearest schools' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/imgView_nearestschools"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_graduation_cap" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/editText_nearestschool"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/nearest_schools" />
+            </LinearLayout>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 'Nearest stations' EditText + ADD button -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_column="0">
+                <Button
+                    android:id="@+id/btn_addneareststation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:drawableStart="@android:drawable/ic_menu_add"
+                    android:text="@string/add"/>
+                <EditText
+                    android:id="@+id/editText_neareststation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/btn_addneareststation"
+                    android:inputType="textPersonName|textCapWords"
+                    android:autofillHints="" />
+            </RelativeLayout>
+
+            <!-- 'Nearest schools' EditText + ADD button -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginStart="10dp">
+                <Button
+                    android:id="@+id/btn_addnearestschool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:drawableStart="@android:drawable/ic_menu_add"
+                    android:text="@string/add"/>
+                <EditText
+                    android:id="@+id/editText_nearestschool"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/btn_addnearestschool"
+                    android:inputType="textPersonName|textCapWords"
+                    android:autofillHints="" />
+            </RelativeLayout>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Nearest stations' LinearLayout -->
+            <LinearLayout
+                android:id="@+id/container_neareststations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:orientation="vertical"/>
+
+            <!-- 'Nearest schools' LinearLayout -->
+            <LinearLayout
+                android:id="@+id/container_nearestschools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"/>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp">
+
+            <!-- 'Terms and Conditions' title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_span="2"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp">
+                <TextView
+                    android:id="@+id/imgView_termsandconditions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/fa_check_circle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    style="@android:style/TextAppearance.Large"
+                    android:text="@string/terms_and_conditions" />
+
+                <!-- 'T&C' checkbox-->
+                <CheckBox
+                    android:id="@+id/checkbox_TandCs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/i_agree_to_termsandconditions"
+                    style="@android:style/TextAppearance.Medium"
+                    android:checked="false" />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <!-- 'Submit' button -->
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_column="0"
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/submit"
+                android:text="@string/submit"
+                android:textSize="18sp"/>
+        </TableRow>
+    </TableLayout>
+</ScrollView>

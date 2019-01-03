@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fa_home" translatable="false">&#xf015;</string>
+    <string name="fa_bed" translatable="false">&#xf236;</string>
+    <string name="fa_bath" translatable="false">&#xf2cd;</string>
+    <string name="fa_calendar_alt" translatable="false">&#xf073;</string>
+    <string name="fa_clock_o" translatable="false">&#xf017;</string>
+    <string name="fa_money" translatable="false">&#xf0d6;</string>
+    <string name="fa_shower" translatable="false">&#xf2cc;</string>
+    <string name="fa_sticky_note" translatable="false">&#xf249;</string>
+    <string name="fa_info_circle" translatable="false">&#xf05a;</string>
+    <string name="fa_user" translatable="false">&#xf007;</string>
+    <string name="fa_paw" translatable="false">&#xf1b0;</string>
+    <string name="fa_wheelchair_alt" translatable="false">&#xf193;</string>
+    <string name="fa_lightbulb" translatable="false">&#xf0eb;</string>
+    <string name="fa_leaf" translatable="false">&#xf06c;</string>
+    <string name="fa_image" translatable="false">&#xf03e;</string>
+    <string name="fa_video" translatable="false">&#xf03d;</string>
+    <string name="fa_subway" translatable="false">&#xf239;</string>
+    <string name="fa_graduation_cap" translatable="false">&#xf19d;</string>
+    <string name="fa_check_circle" translatable="false">&#xf058;</string>
+</resources>
